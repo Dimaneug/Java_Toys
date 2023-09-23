@@ -19,8 +19,8 @@ public class ToyStore {
     public void put(String toyInfo) {
         String[] parts = toyInfo.split(" ");
         int id = Integer.parseInt(parts[0]);
-        String name = parts[1];
-        int weight = Integer.parseInt(parts[2]);
+        int weight = Integer.parseInt(parts[1]);
+        String name = parts[2];
 
         Toy toy = new Toy(id, name, weight);
         toyQueue.offer(toy);
@@ -55,15 +55,15 @@ public class ToyStore {
                 }
 
                 if (selectedToy != null) {
-                    writer.write("Selected Toy: " + selectedToy.name + "\n");
+                    writer.write("Выпавшая игрушка: " + selectedToy.name + "\n");
                 } else {
-                    writer.write("No toy selected for id " + toyId + "\n");
+                    writer.write("Игрушка не выбрана для ID " + toyId + "\n");
                 }
             }
 
             writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());;
         }
     }
 
